@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { PreviewImage } from './_styles';
+
 const App = () => {
   const [image, setImage] = useState<null | string>(null);
 
@@ -22,7 +24,7 @@ const App = () => {
   return (
     <div>
       <input type="file" accept="image/*" onChange={onSelectImage} />
-      {image && <img src={image} />}
+      {image && <PreviewImage src={image} />}
     </div>
   );
 };
