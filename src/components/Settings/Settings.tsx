@@ -15,11 +15,19 @@ export const Settings: React.FC = () => {
     dispatch(increasePuzzlesQuantity());
   };
 
+  const puzzlesInLine = Math.sqrt(settings.puzzlesQuantity);
+
   return (
     <div>
-      <button onClick={decreasePuzzles}>-</button>
-      {settings.puzzlesQuantity}
-      <button onClick={increasePuzzles}>+</button>
+      <div>
+        Puzzles Quantity
+        <button onClick={decreasePuzzles}>-</button>
+        {settings.puzzlesQuantity}
+        <button onClick={increasePuzzles}>+</button>
+      </div>
+      <div>
+        Puzzles {puzzlesInLine}x{puzzlesInLine}
+      </div>
     </div>
   );
 };
