@@ -3,6 +3,8 @@ import { range } from 'lodash';
 import { useSelector, useDispatch } from 'store/hooks';
 import { makeSelectImage, makeSelectSettings } from 'store';
 
+import { shuffle } from 'utils/shuffle';
+
 import { ShuffledPuzzlesStyled, Puzzle } from './_styles';
 
 export const ShuffledPuzzles: React.FC = () => {
@@ -17,7 +19,7 @@ export const ShuffledPuzzles: React.FC = () => {
 
   return (
     <ShuffledPuzzlesStyled>
-      {image && range(settings.puzzlesQuantity).map((puzzleIndex) => {
+      {image && shuffle(range(settings.puzzlesQuantity)).map((puzzleIndex) => {
         const leftOffsetInPx = 500 - (puzzleIndex % puzzlesInLine * sizeOfPuzzleInPx);
         const topOffsetInPx = 500 - (Math.floor(puzzleIndex / puzzlesInLine) * sizeOfPuzzleInPx);
 
